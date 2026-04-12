@@ -32,6 +32,10 @@ app.get('/health', (_req, res) => {
 
 /* ── API Routes ─────────────────────────────────────────── */
 app.use('/api/v1', v1Routes);
+/* ---- route test ---- */
+app.get('/api/v1/test', (req, res) => {
+  res.json({ message: 'API is working!' });
+});
 
 /* ── Error handling ─────────────────────────────────────── */
 app.use(notFoundHandler);
