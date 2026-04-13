@@ -23,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan('combined', { stream: { write: (msg) => logger.info(msg.trim()) } }));
 
 /* ── Rate limiting ──────────────────────────────────────── */
+app.set('trust proxy', 1);
 app.use(globalRateLimiter);
 
 /* ── Health check ───────────────────────────────────────── */
