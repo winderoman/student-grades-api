@@ -11,15 +11,24 @@ declare global {
   }
 }
 
-export const authenticate = (req: Request, res: Response, next: NextFunction): void => {
-  const authHeader = req.headers.authorization;
+const extractToken = (req: Request): string | null => {
+  // 1. Cookie httpOnly (preferido — no accesible desde JS del cliente)
+  if (req.cookies?.access_token) return req.cookies.access_token as string;
 
-  if (!authHeader?.startsWith('Bearer ')) {
+  // 2. Fallback: Authorization header (útil para Postman / clientes móviles)
+  const authHeader = req.headers.authorization;
+  if (authHeader?.startsWith('Bearer ')) return authHeader.split(' ')[1];
+
+  return null;
+};
+
+export const authenticate = (req: Request, res: Response, next: NextFunction): void => {
+  const token = extractToken(req);
+
+  if (!token) {
     sendUnauthorized(res, 'Token no proporcionado');
     return;
   }
-
-  const token = authHeader.split(' ')[1];
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET ?? '') as JwtPayload;

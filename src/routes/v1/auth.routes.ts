@@ -38,4 +38,7 @@ router.patch(
   AuthController.changePassword
 );
 
+// Borra las cookies del cliente
+router.post('/logout', AuthController.logout);
+
 export default router;

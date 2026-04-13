@@ -13,8 +13,10 @@
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "exceljs": "^4.4.0",
     "express": "^4.18.3",
     "express-rate-limit": "^7.2.0",
     "googleapis": "^140.0.0",
@@ -24,14 +26,14 @@
     "morgan": "^1.10.0",
     "mysql2": "^3.9.7",
     "nodemailer": "^6.9.13",
+    "pdfkit": "^0.15.0",
     "sequelize": "^6.37.1",
-    "winston": "^3.13.0",
-    "exceljs": "^4.4.0",
-    "pdfkit": "^0.15.0"
+    "winston": "^3.13.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
     "@types/compression": "^1.7.5",
+    "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/jsonwebtoken": "^9.0.6",
