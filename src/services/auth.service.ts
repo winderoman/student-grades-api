@@ -29,6 +29,7 @@ const buildTokenPair = (user: User): TokenPair => {
   const payload: Omit<JwtPayload, 'iat' | 'exp'> = {
     id: user.id,
     email: user.email,
+    name: user.name,
     role: user.role,
   };
 
