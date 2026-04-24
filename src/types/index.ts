@@ -29,7 +29,7 @@ export interface PaginatedResult<T> {
 export interface ApiResponse<T = unknown> {
   success: boolean;
   message: string;
-  data?: T;
+  response?: T;
   errors?: string[];
 }
 

@@ -7,7 +7,7 @@ export const sendSuccess = <T>(
   message = 'Operation successful',
   statusCode = 200
 ): Response => {
-  const response: ApiResponse<T> = { success: true, message, data };
+  const response: ApiResponse<T> = { success: true, message, response: data };
   return res.status(statusCode).json(response);
 };
 
