@@ -32,7 +32,7 @@ export const SubjectService = {
       limit,
       offset,
       include: [{ model: User, as: 'teacher', attributes: ['id', 'name', 'email'] }],
-      order: [['name', 'ASC']],
+      order: [['id', 'DESC']],
     });
 
     return buildPaginatedResult(rows, count, page, limit);
