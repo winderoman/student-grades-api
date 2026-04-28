@@ -10,7 +10,7 @@ const REFRESH_COOKIE = 'refresh_token';
 const accessCookieOptions: CookieOptions = {
   httpOnly: true,
   secure: isProd,          // HTTPS en prod, HTTP en dev
-  sameSite: isProd ? 'strict' : 'lax',
+  sameSite: isProd ? 'none' : 'lax',
   maxAge: 8 * 60 * 60 * 1000,  // 8 horas en ms
   path: '/',
 };
@@ -18,7 +18,7 @@ const accessCookieOptions: CookieOptions = {
 const refreshCookieOptions: CookieOptions = {
   httpOnly: true,
   secure: isProd,
-  sameSite: isProd ? 'strict' : 'lax',
+  sameSite: isProd ? 'none' : 'lax',
   maxAge: 7 * 24 * 60 * 60 * 1000,  // 7 días en ms
   path: '/api/v1/auth/refresh',       // solo disponible en el endpoint de refresh
 };
@@ -26,7 +26,7 @@ const refreshCookieOptions: CookieOptions = {
 const clearCookieOptions: CookieOptions = {
   httpOnly: true,
   secure: isProd,
-  sameSite: isProd ? 'strict' : 'lax',
+  sameSite: isProd ? 'none' : 'lax',
   path: '/',
 };
 
