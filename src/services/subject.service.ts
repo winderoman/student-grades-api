@@ -23,7 +23,7 @@ export const SubjectService = {
 
   async findAll(query: PaginationQuery & { search?: string; teacherId?: number }) {
     const { limit, offset, page } = getPagination(query);
-    const where: Record<string, unknown> = { isActive: true };
+    const where: Record<string, unknown> = {  };
     if (query.search) where['name'] = { [Op.like]: `%${query.search}%` };
     if (query.teacherId) where['teacherId'] = query.teacherId;
 
